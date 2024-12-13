@@ -1,0 +1,193 @@
+[gd_scene load_steps=6 format=3 uid="uid://b07q8fhd2hlp8"]
+
+[ext_resource type="LabelSettings" uid="uid://b0naa3jk7tjd5" path="res://Resources/Labels/MainLabelSettings.tres" id="1_8bh14"]
+[ext_resource type="Script" path="res://Scripts/selecting_language_menu.gd" id="1_u2y5k"]
+[ext_resource type="Theme" uid="uid://mik8vr1ff0th" path="res://Resources/Themes/signup_menu_checkbox.theme" id="2_40m01"]
+[ext_resource type="Theme" uid="uid://c6w7p87d84la4" path="res://Resources/Themes/selecting_language_scroll_container.theme" id="3_lh3r7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdlb1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="SelectingLanguage" type="Control"]
+custom_minimum_size = Vector2(1080, 2340)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u2y5k")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(952, 1184)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 544.0
+offset_right = 1016.0
+offset_bottom = 1728.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdlb1")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 544.0
+offset_bottom = 128.0
+text = "LANGUAGE_LABEL"
+label_settings = ExtResource("1_8bh14")
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 920.0
+offset_bottom = 960.0
+theme = ExtResource("3_lh3r7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+show_behind_parent = true
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Lang1" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "العربية"
+alignment = 1
+
+[node name="Lang2" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "English"
+alignment = 1
+
+[node name="Lang3" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "Español"
+alignment = 1
+
+[node name="Lang4" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "Português"
+alignment = 1
+
+[node name="Lang5" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "Português (Brazil)"
+alignment = 1
+
+[node name="Lang6" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "Français"
+alignment = 1
+
+[node name="Lang7" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "Deutsch"
+alignment = 1
+
+[node name="Lang8" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "Русский"
+alignment = 1
+
+[node name="Lang9" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "中国人"
+alignment = 1
+
+[node name="Lang10" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(888, 120)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "हिंदी"
+alignment = 1
+
+[node name="Next" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 992.0
+offset_right = 920.0
+offset_bottom = 1120.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "NEXT_LABEL"
+
+[node name="Cancel" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = 992.0
+offset_right = 376.0
+offset_bottom = 1120.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_40m01")
+text = "CANCEL_LABEL"
+
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang1" to="." method="_on_lang_1_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang2" to="." method="_on_lang_2_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang3" to="." method="_on_lang_3_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang4" to="." method="_on_lang_4_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang5" to="." method="_on_lang_5_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang6" to="." method="_on_lang_6_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang7" to="." method="_on_lang_7_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang8" to="." method="_on_lang_8_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang9" to="." method="_on_lang_9_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Lang10" to="." method="_on_lang_10_pressed"]
+[connection signal="pressed" from="Panel/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Panel/Cancel" to="." method="_on_cancel_pressed"]

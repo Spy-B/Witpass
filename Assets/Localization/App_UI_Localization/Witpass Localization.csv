@@ -1,0 +1,19 @@
+key,ar,en,es,pt,pt_br,fr,de,ru,zh,hi
+LANGUAGE_LABEL,اللغة,Language,Idiomas,Idioma,Idioma,Langue,Sprachen,Язык,语言,भाषा
+SIGN_UP_LABEL,تسجيل الدخول,Sign Up,Registrarse,Inscrever-se,Inscrever-se,S'inscrire,registrieren,Зарегистрироваться,报名,साइन अप करें
+ENTER_YOUR_USERNAME_LABEL,أدخل إسم المستخدم,Enter your User Name,Ingrese su Nombre de Usuario,Introduza o seu Nome de Utilizador,Digite seu Nome de Usuário,Entrez votre Nom D'utilisateur,Geben Sie Ihren Benutzernamen ein,Введите свое имя пользователя,输入您的用户名,अपना उपयोगकर्ता नाम दर्ज करें
+USERNAME_LABEL,إسم المستخدم,User Name,Nombre de Usuario,Nome de Utilizador,Nome de Usuário,Nom D'utilisateur,Benutzername,имя пользователя,用户名,उपयोगकर्ता नाम
+ENTER_YOUR_EMAIL_OR_YOUR_PHONE_NUMBER_LABEL,أدخل بريدك الإلكتروني أو رقم هاتفك,Enter your E-mail or your Phone Number,Introduce tu correo electrónico o Número de Teléfono,Introduza o seu E-mail ou o seu Número de Telefone,Digite seu e-mail ou Número de Telefone,Entrez votre email ou votre Numéro de Téléphone,Geben Sie Ihre E-Mail-Adresse oder Telefonnummer ein,Введите адрес электронной почты или номер телефона,输入您的电子邮件或电话号码,अपना ईमेल या फ़ोन नंबर दर्ज करें
+EMAIL_OR_PHONE_NUMBER_LABEL,البريد الإلكتروني أو رقم الهاتف,E-mail or Phone Number,Correo electrónico o Número de Teléfono,E-mail ou Número de Telefone,E-mail ou Número de Telefone,Email ou Numéro de Téléphone,E-Mail oder Telefonnummer,Электронная почта или номер телефона,电子邮件或电话号码,ईमेल या फ़ोन नंबर
+ENTER_YOUR_FRIENDS_REFERRAL_CODE-OPTIONAL-LABEL,أدخل رمز إحالة صديقك (اختياري),Enter your Friend’s Referral Code (Optional),Ingresa el Código de Referencia de tu amigo (Opcional),Introduza o Código de Referência do seu amigo (Opcional),Digite o código de indicação do seu amigo (Opcional),Entrez le code de parrainage de votre ami (Facultatif),Geben Sie den Empfehlungscode Ihres Freundes ein (Optional),введите реферальный код чьего-то друга (необязательно),输入您朋友的推荐码（可选）,अपने मित्र का रेफ़रल कोड दर्ज करें (वैकल्पिक)
+REFERRAL_CODE_LABEL,رمز الإحالة,Referral Code,Código de Referencia,Código de Referência,Código de Referência,Code de Référence,Empfehlungscode,Реферальный код,推荐代码,रेफरल कोड
+START_LABEL,بدأ,Start,Inicio,Iniciar,Iniciar,Démarrer,Start,Пуск,开始,शुरू
+NEXT_LABEL,التالي,Next,Siguiente,Seguinte,avançar,Suivant,Weiter,Далее,下一个,अगला
+CORRECT_LABEL,صحيح,Correct,Correcto,Correto,Correto,Correct,Richtig,Правильный,正确的,सही
+INCORRECT_LABEL,خطأ,Incorrect,Incorrecto,Incorreto,Incorreto,Incorrect,Falsch,Неправильно,错误,ग़लत
+YES_LABEL,نعم,Yes,Sí,Sim,Sim,Oui,Ja,Да,强,हाँ
+NO_LABEL,لا,No,No,não,não,Non,Nein,Нет,弱,नहीं
+CANCEL_LABEL,إلغاء,Cancel,Cancelar,Cancelar,Cancelar,Annuler,Abbrechen,Отмена,取消,रद्द करें
+MY_ACCOUNT_LABEL,حسابي,My Account,Mi cuenta,A Minha Conta,Minha Conta,Mon compte,Mein Konto,Моя учетная запись,我的帐户,मेरा खाता
+RULES_LABEL,القوانين,Rules,Normas,Regras,Regras,Règles,Regeln,Правила,规则,नियम
+SUPPORT_LABEL,الدعم,Support,Soporte,Suporte,Suporte,Support,Support,Поддержка,支持,सहायता

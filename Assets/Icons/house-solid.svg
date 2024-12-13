@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:realworld="http://www.rw-designer.com/export-svg" width="576px" height="512px">
+  <g>
+    <path d="M 575.8 255.5C 575.8 273.5 560.8 287.6 543.8 287.6L 511.8 287.6L 512.5 447.8C 512.5 450.5 512.3 453.2 512 455.9L 512 472.1C 512 494.2 494.1 512.1 472 512.1L 456 512.1C 454.9 512.1 453.8 512.1 452.7 512C 451.3 512.1 449.9 512.1 448.5 512.1L 416 512L 392 512C 369.9 512 352 494.1 352 472L 352 448L 352 384C 352 366.3 337.7 352 320 352L 256 352C 238.3 352 224 366.3 224 384L 224 448L 224 472C 224 494.1 206.1 512 184 512L 160 512L 128.1 512C 126.6 512 125.1 511.9 123.6 511.8C 122.4 511.9 121.2 512 120 512L 104 512C 81.9 512 64 494.1 64 472L 64 360C 64 359.1 64 358.1 64.1 357.2L 64.1 287.5L 32.1 287.5C 14.1 287.5 0.100006 273.5 0.100006 255.4C 0.100006 246.4 3.1 238.4 10.1 231.4L 266.4 8C 273.4 1 281.4 0 288.4 0C 295.4 0 303.4 2 309.4 7L 564.8 231.5C 572.8 238.5 576.8 246.5 575.8 255.5 z" fill="#ffffff" fill-rule="evenodd" />
+  </g>
+</svg>

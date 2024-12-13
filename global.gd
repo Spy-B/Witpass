@@ -1,0 +1,59 @@
+extends Node
+
+var saveFilePath: String = "user://witpass.ww"
+var saveFilePass: String = "23439"
+
+var save_dic = {
+	"language": 1,
+	"username": "",
+	"phone_number": "",
+	"email": "",
+	"referral_code": "",
+	"friend_referral_code": "",
+	"account_level": 1,
+	"total_time_in_app": 0,
+	"passed_questions": [],
+	"questions_answered_correctly": 0
+	}
+
+var appStarted := false
+
+func _ready() -> void:
+	load_app()
+	#load_resource()
+	
+	print(load_app())
+
+func save_app(_key = null, _value = null):
+	if _key != null && _value != null:
+		save_dic[_key] = _value
+	var save_file = FileAccess.open_encrypted_with_pass(saveFilePath, FileAccess.WRITE, saveFilePass)
+	var json_string = JSON.stringify(save_dic)
+	save_file.store_line(json_string)
+	
+	save_file.close()
+
+func load_app():
+	if not FileAccess.file_exists(saveFilePath):
+		save_app()
+	var load_file = FileAccess.open_encrypted_with_pass(saveFilePath, FileAccess.READ, saveFilePass)
+	
+	while load_file.get_position() < load_file.get_length():
+		var json = JSON.new()
+		json.parse(load_file.get_line(), true)
+		return json.get_data()
+	
+	load_file.close()
+
+
+func load_resource():
+	save_dic.username = load_app().username
+	save_dic.phone_number = load_app().phone_number
+	save_dic.email = load_app().email
+	
+	if load_app().referral_code == "":
+		pass
+	else:
+		save_dic.referral_code = load_app().referral_code
+	
+	save_dic.friend_referral_code = load_app().friend_referral_code
