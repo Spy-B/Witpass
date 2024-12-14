@@ -40,12 +40,14 @@ extends Control
 var passedQuestions = []
 var insertPos = 0
 
+var totalTimeInApp
+
 func _ready() -> void:
 	Global.appStarted = true
 	load_app_resource()
 	
 	if TranslationServer.get_locale() == "ar":
-		selector.position = marker_2d_3.position
+		selector.global_position = marker_2d_3.global_position
 	
 	system_bar_color_changer.set_translucent_system_bars(true)
 
@@ -56,9 +58,22 @@ func _process(_delta: float) -> void:
 		else:
 			selector.position = marker_2d_3.position
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if Global.QuitPressed:
+			get_tree().quit()
+		
+		if Engine.has_singleton("ToastPlugin") && !Global.QuitPressed:
+			var toast_plugin = Engine.get_singleton("ToastPlugin")
+			toast_plugin.showToast("Click again", 0, 0, 0, 500)
+			Global.QuitPressed = true
+
+
 func load_app_resource():
 	user_name.text = Global.load_app().username
 	passedQuestions = Global.load_app().passed_questions
+	totalTimeInApp = Global.load_app().total_time_in_app
+
 
 func _on_start_pressed() -> void:
 	tickets.visible = false
@@ -148,7 +163,8 @@ func questions_selector():
 	passedQuestions.sort()
 	print(passedQuestions)
 	
-	Global.save_dic.passed_qustions = passedQuestions
+	Global.load_resource()
+	Global.save_app("passed_qustions", passedQuestions)
 	Global.save_app()
 	
 	questions_values(Questions.chosen_question)
@@ -228,6 +244,9 @@ func _on_home_pressed() -> void:
 		tween.tween_property(selector, "position", marker_2d_3.position, 0.15).set_trans(Tween.TRANS_CUBIC)
 	else:
 		tween.tween_property(selector, "position", marker_2d.position, 0.15).set_trans(Tween.TRANS_CUBIC)
+	
+	Global.load_resource()
+	Global.save_app("total_time_in_app", totalTimeInApp)
 
 func _on_profile_pressed() -> void:
 	main.visible = false
@@ -236,6 +255,9 @@ func _on_profile_pressed() -> void:
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(selector, "position", marker_2d_2.position, 0.15).set_trans(Tween.TRANS_CUBIC)
+	
+	Global.load_resource()
+	Global.save_app("total_time_in_app", totalTimeInApp)
 
 func _on_more_pressed() -> void:
 	main.visible = false
@@ -247,10 +269,13 @@ func _on_more_pressed() -> void:
 		tween.tween_property(selector, "position", marker_2d.position, 0.15).set_trans(Tween.TRANS_CUBIC)
 	else:
 		tween.tween_property(selector, "position", marker_2d_3.position, 0.15).set_trans(Tween.TRANS_CUBIC)
+	
+	Global.load_resource()
+	Global.save_app("total_time_in_app", totalTimeInApp)
 
 
 func _on_timer_timeout() -> void:
-	Global.save_dic.total_time_in_app += 1
+	totalTimeInApp += 1
 	
-	total_time_label.text = str(Global.save_dic.total_time_in_app)
+	total_time_label.text = str(totalTimeInApp)
 	timer.start()

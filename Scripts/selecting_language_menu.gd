@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		1:
 			TranslationServer.set_locale("en")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = true
@@ -55,7 +55,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		2:
 			TranslationServer.set_locale("es")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false
@@ -67,7 +67,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		3:
 			TranslationServer.set_locale("pt")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false
@@ -79,7 +79,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		4:
 			TranslationServer.set_locale("pt_br")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false
@@ -91,7 +91,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		5:
 			TranslationServer.set_locale("fr")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false
@@ -103,7 +103,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		6:
 			TranslationServer.set_locale("de")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false
@@ -115,7 +115,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		7:
 			TranslationServer.set_locale("ru")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false
@@ -127,7 +127,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = true
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
-		0:
+		8:
 			TranslationServer.set_locale("zh")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false
@@ -139,7 +139,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = true
 			lang_10.button_pressed = false
-		0:
+		9:
 			TranslationServer.set_locale("hi")
 			lang_1.button_pressed = false
 			lang_2.button_pressed = false

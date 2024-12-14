@@ -117,7 +117,7 @@ offset_bottom = 192.0
 theme = ExtResource("3_6wm6l")
 placeholder_text = "REFERRAL_CODE_LABEL"
 
-[node name="NextBtn" type="Button" parent="SignupPanel"]
+[node name="Done" type="Button" parent="SignupPanel"]
 layout_mode = 0
 offset_left = 576.0
 offset_top = 992.0
@@ -125,10 +125,18 @@ offset_right = 920.0
 offset_bottom = 1120.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_lfee0")
-text = "NEXT_LABEL"
+text = "DONE_LABEL"
+
+[node name="Back" type="Button" parent="SignupPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 992.0
+offset_right = 376.0
+offset_bottom = 1120.0
+theme = ExtResource("5_lfee0")
+text = "BACK_LABEL"
 
 [node name="SelectingLanguage" parent="." instance=ExtResource("2_00nmh")]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,4 +150,5 @@ offset_bottom = 1170.0
 
 [node name="CodeGenerator" parent="." instance=ExtResource("7_ikihg")]
 
-[connection signal="pressed" from="SignupPanel/NextBtn" to="." method="_on_next2_btn_pressed"]
+[connection signal="pressed" from="SignupPanel/Done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="SignupPanel/Back" to="." method="_on_back_pressed"]

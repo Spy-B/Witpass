@@ -17,12 +17,22 @@ var save_dic = {
 	}
 
 var appStarted := false
+var QuitPressed := false
 
 func _ready() -> void:
-	load_app()
-	#load_resource()
-	
 	print(load_app())
+	
+	if Engine.has_singleton("ToastPlugin"):
+		var toast_plugin = Engine.get_singleton("ToastPlugin")
+		toast_plugin.connect("toast_shown", Callable(self, "_on_toast_shown"))
+		toast_plugin.connect("toast_hidden", Callable(self, "_on_toast_hidden"))
+		toast_plugin.connect("toast_callback", Callable(self, "_on_toast_callback"))
+	else:
+		print("[TOAST_PLUGIN] ToastPlugin not found")
+
+func _on_toast_hidden():
+	QuitPressed = false
+
 
 func save_app(_key = null, _value = null):
 	if _key != null && _value != null:
@@ -48,12 +58,17 @@ func load_app():
 
 func load_resource():
 	save_dic.username = load_app().username
+	#save_app("username", load_app().username)
 	save_dic.phone_number = load_app().phone_number
+	#save_app("phone_number", load_app().phone_number)
 	save_dic.email = load_app().email
+	#save_app("email", load_app().email)
 	
 	if load_app().referral_code == "":
 		pass
 	else:
 		save_dic.referral_code = load_app().referral_code
+		#save_app("referral_code", load_app().referral_code)
 	
 	save_dic.friend_referral_code = load_app().friend_referral_code
+	#save_app("friend_referral_code", load_app().friend_referral_code)
