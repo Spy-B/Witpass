@@ -278,7 +278,6 @@ func _on_lang_10_pressed() -> void:
 func _on_next_pressed() -> void:
 	Global.load_resource()
 	Global.save_app("language", language)
-	Global.save_app()
 	
 	self.visible = false
 	
@@ -290,7 +289,7 @@ func _on_next_pressed() -> void:
 
 func _on_cancel_pressed() -> void:
 	selectedLanguage = Global.load_app().language
-	language = selectedLanguage
+	language = int(selectedLanguage)
 	
 	self.visible = false
 	

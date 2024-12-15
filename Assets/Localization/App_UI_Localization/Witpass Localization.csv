@@ -13,9 +13,10 @@ EDIT_YOUR_USERNAME_LABEL,حرر اسمك المستخدم,Edit your User Name,Ed
 EDIT_YOUR_PHONE_NUMBER_LABEL,حرر رقمك الهاتفي,Edit your Phone Number,Edita tu número de teléfono,Edite o seu número de telefone ,Edite seu número de telefone,Modifiez votre numéro de téléphone ,Bearbeiten Sie Ihre Telefonnummer ,Измените свой номер телефона ,编辑您的电话号码 ,अपना फ़ोन नंबर संपादित करें 
 EDIT_YOUR_EMAIL_LABEL,حرر بريدك الإلكتروني,Edit your E-mail,Edita tu correo electrónico ,Edite o seu e-mail ,Edite seu e-mail ,Modifiez votre adresse e-mail ,Bearbeiten Sie Ihre E-Mail-Adresse ,Измените свой адрес электронной почты ,编辑您的电子邮件 ,अपना ईमेल संपादित करें 
 REFERRAL_CODE_LABEL,رمز الإحالة,Referral Code,Código de Referencia,Código de Referência,Código de Referência,Code de Référence,Empfehlungscode,Реферальный код,推荐代码,रेफरल कोड
-START_LABEL,بدأ,Start,Inicio,Iniciar,Iniciar,Démarrer,Start,Пуск,开始,शुरू
+START_LABEL,بدأ,Start,Inicio,Iniciar,Iniciar,Démarrer,Starten,Пуск,开始,शुरू करें
 NEXT_LABEL,التالي,Next,Siguiente,Seguinte,avançar,Suivant,Weiter,Далее,下一个,अगला
 DONE_LABEL,تم,Done,Hecho,Concluído,Concluído,Terminé,Erledigt ,Готово,完成,पूर्ण
+BACK_LABEL,عودة,Back,Atrás,Voltar,Voltar,Retour,Zurück,Назад,返回 ,वापस
 CORRECT_LABEL,صحيح,Correct,Correcto,Correto,Correto,Correct,Richtig,Правильный,正确的,सही
 INCORRECT_LABEL,خطأ,Incorrect,Incorrecto,Incorreto,Incorreto,Incorrect,Falsch,Неправильно,错误,ग़लत
 YES_LABEL,نعم,Yes,Sí,Sim,Sim,Oui,Ja,Да,强,हाँ

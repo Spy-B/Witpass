@@ -1,7 +1,9 @@
 extends Control
 
-@export_file("*.tscn") var loading_root_path
-@export_file("*.tscn") var loading_signup_menu_path
+@export_file("*.tscn") var rootScenePath
+@export_file("*.tscn") var signupScenePath
+
+@export_file("*.tscn") var questionsFilePath
 
 var targeted_scene
 
@@ -10,10 +12,13 @@ func _ready() -> void:
 		Global.save_app()
 	
 	if Global.load_app().username != "" && (Global.load_app().email != "" || Global.load_app().phone_number != ""):
-		targeted_scene = loading_root_path
+		Global.signUpDone = true
+		targeted_scene = rootScenePath
 	else:
-		targeted_scene = loading_signup_menu_path
+		Global.signUpDone = false
+		targeted_scene = signupScenePath
 	
+	ResourceLoader.load_threaded_request(questionsFilePath)
 	ResourceLoader.load_threaded_request(targeted_scene)
 
 func _process(_delta: float) -> void:

@@ -1,4 +1,5 @@
 extends Control
+class_name Root
 
 @onready var main: Control = $Main
 
@@ -35,12 +36,10 @@ extends Control
 @onready var marker_2d_2: Marker2D = $BottomBtns/PageSelector/Marker2D2
 @onready var marker_2d_3: Marker2D = $BottomBtns/PageSelector/Marker2D3
 
-@onready var timer: Timer = $Timer
-
-var passedQuestions = []
-var insertPos = 0
+@onready var timer: Timer = $TotalTime
 
 var totalTimeInApp
+
 
 func _ready() -> void:
 	Global.appStarted = true
@@ -57,6 +56,11 @@ func _process(_delta: float) -> void:
 			selector.position = marker_2d.position
 		else:
 			selector.position = marker_2d_3.position
+	
+	if !Questions.test_done:
+		question.text = str(Questions.question)
+	else:
+		question.text = "YOU WON"
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
@@ -67,11 +71,15 @@ func _notification(what: int) -> void:
 			var toast_plugin = Engine.get_singleton("ToastPlugin")
 			toast_plugin.showToast("Click again", 0, 0, 0, 500)
 			Global.QuitPressed = true
+		
+		Global.load_resource()
+		Global.save_app("total_time_in_app", totalTimeInApp)
 
 
 func load_app_resource():
-	user_name.text = Global.load_app().username
-	passedQuestions = Global.load_app().passed_questions
+	user_name.text = str(Global.load_app().username)
+	tickets_label.text = str(Global.load_app().tickets)
+	#Questions.passedQuestions = Global.load_app().passed_questions
 	totalTimeInApp = Global.load_app().total_time_in_app
 
 
@@ -93,7 +101,7 @@ func _on_start_pressed() -> void:
 	tween3.tween_property(incorrect_btn, "modulate", Color.html("ffffff"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween4.tween_property(close_btn, "modulate", Color.html("ff2929"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	
-	questions_selector()
+	Questions.questions_selector()
 
 
 func _on_correct_pressed() -> void:
@@ -101,10 +109,10 @@ func _on_correct_pressed() -> void:
 	
 	if Questions.correctAnswer:
 		answer = "Correct"
-		questions_selector()
+		Questions.questions_selector()
 	else:
 		answer = "Incorrect!"
-		questions_selector()
+		Questions.questions_selector()
 	
 	print(answer)
 
@@ -113,73 +121,12 @@ func _on_incorrect_pressed() -> void:
 	
 	if !Questions.correctAnswer:
 		answer = "Correct"
-		questions_selector()
+		Questions.questions_selector()
 	else:
 		answer = "Incorrect!"
-		questions_selector()
+		Questions.questions_selector()
 	
 	print(answer)
-
-func questions_selector():
-	randomize()
-	Questions.chosen_question = randi_range(1, Questions.questions.size())
-	
-	if passedQuestions.size() == Questions.questions.size():
-		question.text = "You WON!!"
-		_on_yes_stop_playing_pressed()
-	else:
-		match Questions.chosen_question:
-			1:
-				if !1 in passedQuestions:
-					question.text = Questions.questions.q1
-					passedQuestions.append(Questions.chosen_question)
-				else:
-					questions_selector()
-			2:
-				if !2 in passedQuestions:
-					question.text = Questions.questions.q2
-					passedQuestions.append(Questions.chosen_question)
-				else:
-					questions_selector()
-			3:
-				if !3 in passedQuestions:
-					question.text = Questions.questions.q3
-					passedQuestions.append(Questions.chosen_question)
-				else:
-					questions_selector()
-			4:
-				if !4 in passedQuestions:
-					question.text = Questions.questions.q4
-					passedQuestions.append(Questions.chosen_question)
-				else:
-					questions_selector()
-			5:
-				if !5 in passedQuestions:
-					question.text = Questions.questions.q5
-					passedQuestions.append(Questions.chosen_question)
-				else:
-					questions_selector()
-	
-	passedQuestions.sort()
-	print(passedQuestions)
-	
-	Global.load_resource()
-	Global.save_app("passed_qustions", passedQuestions)
-	Global.save_app()
-	
-	questions_values(Questions.chosen_question)
-
-func questions_values(question_selected):
-	match question_selected:
-		1:
-			Questions.correctAnswer = Questions.answers.a1
-		2:
-			Questions.correctAnswer = Questions.answers.a2
-		3:
-			Questions.correctAnswer = Questions.answers.a3
-		4:
-			Questions.correctAnswer = Questions.answers.a4
-
 
 
 func _on_close_pressed() -> void:
@@ -244,9 +191,6 @@ func _on_home_pressed() -> void:
 		tween.tween_property(selector, "position", marker_2d_3.position, 0.15).set_trans(Tween.TRANS_CUBIC)
 	else:
 		tween.tween_property(selector, "position", marker_2d.position, 0.15).set_trans(Tween.TRANS_CUBIC)
-	
-	Global.load_resource()
-	Global.save_app("total_time_in_app", totalTimeInApp)
 
 func _on_profile_pressed() -> void:
 	main.visible = false
@@ -255,9 +199,6 @@ func _on_profile_pressed() -> void:
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(selector, "position", marker_2d_2.position, 0.15).set_trans(Tween.TRANS_CUBIC)
-	
-	Global.load_resource()
-	Global.save_app("total_time_in_app", totalTimeInApp)
 
 func _on_more_pressed() -> void:
 	main.visible = false
@@ -269,9 +210,6 @@ func _on_more_pressed() -> void:
 		tween.tween_property(selector, "position", marker_2d.position, 0.15).set_trans(Tween.TRANS_CUBIC)
 	else:
 		tween.tween_property(selector, "position", marker_2d_3.position, 0.15).set_trans(Tween.TRANS_CUBIC)
-	
-	Global.load_resource()
-	Global.save_app("total_time_in_app", totalTimeInApp)
 
 
 func _on_timer_timeout() -> void:

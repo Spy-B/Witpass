@@ -11,13 +11,20 @@ var save_dic = {
 	"referral_code": "",
 	"friend_referral_code": "",
 	"account_level": 1,
+	"tickets": 0,
 	"total_time_in_app": 0,
 	"passed_questions": [],
 	"questions_answered_correctly": 0
 	}
 
 var appStarted := false
+var signUpDone := false
 var QuitPressed := false
+
+var screen_resolution: Dictionary = {
+	"16/9": "1920*1080",
+	"19.5/9": "2340*1080",
+}
 
 func _ready() -> void:
 	print(load_app())
@@ -57,18 +64,16 @@ func load_app():
 
 
 func load_resource():
+	if signUpDone:
+		save_dic.language = load_app().language
+	
 	save_dic.username = load_app().username
-	#save_app("username", load_app().username)
 	save_dic.phone_number = load_app().phone_number
-	#save_app("phone_number", load_app().phone_number)
 	save_dic.email = load_app().email
-	#save_app("email", load_app().email)
 	
 	if load_app().referral_code == "":
 		pass
 	else:
 		save_dic.referral_code = load_app().referral_code
-		#save_app("referral_code", load_app().referral_code)
 	
 	save_dic.friend_referral_code = load_app().friend_referral_code
-	#save_app("friend_referral_code", load_app().friend_referral_code)

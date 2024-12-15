@@ -6,21 +6,21 @@ extends Node
 	"q3": "Q_3",
 	"q4": "Q_4",
 	"q5": "Q_5",
-	#"q6": "Q_6",
-	#"q7": "Q_7",
-	#"q8": "Q_8",
-	#"q9": "Q_9",
-	#"q10": "Q_10",
-	#"q11": "Q_11",
-	#"q12": "Q_12",
-	#"q13": "Q_13",
-	#"q14": "Q_14",
-	#"q15": "Q_15",
-	#"q16": "Q_16",
-	#"q17": "Q_17",
-	#"q18": "Q_18",
-	#"q19": "Q_19",
-	#"q20": "Q_20",
+	"q6": "Q_6",
+	"q7": "Q_7",
+	"q8": "Q_8",
+	"q9": "Q_9",
+	"q10": "Q_10",
+	"q11": "Q_11",
+	"q12": "Q_12",
+	"q13": "Q_13",
+	"q14": "Q_14",
+	"q15": "Q_15",
+	"q16": "Q_16",
+	"q17": "Q_17",
+	"q18": "Q_18",
+	"q19": "Q_19",
+	"q20": "Q_20",
 	#"q21": "Q_21",
 	#"q22": "Q_22",
 	#"q23": "Q_23",
@@ -3729,5 +3729,167 @@ extends Node
 	"a4": false,
 	}
 
+var question: String = ""
 var chosen_question
 var correctAnswer
+var passedQuestions = []
+var number_of_questions
+var test_done
+
+func _ready() -> void:
+	if Global.load_app().account_level == 1:
+		number_of_questions = 10
+	elif Global.load_app().account_level == 2:
+		number_of_questions = 15
+	elif Global.load_app().account_level == 3:
+		number_of_questions = 30
+
+
+func questions_selector():
+	randomize()
+	chosen_question = randi_range(1, questions.size())
+	
+	if passedQuestions.size() == number_of_questions:
+		test_done = true
+	else:
+		match chosen_question:
+			1:
+				if !1 in passedQuestions:
+					question = questions.q1
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			2:
+				if !2 in passedQuestions:
+					question = questions.q2
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			3:
+				if !3 in passedQuestions:
+					question = questions.q3
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			4:
+				if !4 in passedQuestions:
+					question = questions.q4
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			5:
+				if !5 in passedQuestions:
+					question = questions.q5
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			6:
+				if !6 in passedQuestions:
+					question = questions.q6
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			7:
+				if !7 in passedQuestions:
+					question = questions.q7
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			8:
+				if !8 in passedQuestions:
+					question = questions.q8
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			9:
+				if !9 in passedQuestions:
+					question = questions.q9
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			10:
+				if !10 in passedQuestions:
+					question = questions.q10
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			11:
+				if !11 in passedQuestions:
+					question = questions.q11
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			12:
+				if !12 in passedQuestions:
+					question = questions.q12
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			13:
+				if !13 in passedQuestions:
+					question = questions.q13
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			14:
+				if !14 in passedQuestions:
+					question = questions.q14
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			15:
+				if !15 in passedQuestions:
+					question = questions.q15
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			16:
+				if !16 in passedQuestions:
+					question = questions.q16
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			17:
+				if !17 in passedQuestions:
+					question = questions.q17
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			18:
+				if !18 in passedQuestions:
+					question = questions.q18
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			19:
+				if !19 in passedQuestions:
+					question = questions.q19
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+			20:
+				if !20 in passedQuestions:
+					question = questions.q20
+					passedQuestions.append(chosen_question)
+				else:
+					questions_selector()
+	
+	passedQuestions.sort()
+	print(passedQuestions)
+	
+	Global.load_resource()
+	Global.save_app("passed_questions", passedQuestions)
+	Global.save_app()
+	
+	questions_values(chosen_question)
+
+func questions_values(question_selected):
+	match question_selected:
+		1:
+			correctAnswer = answers.a1
+		2:
+			correctAnswer = answers.a2
+		3:
+			correctAnswer = answers.a3
+		4:
+			correctAnswer = answers.a4
