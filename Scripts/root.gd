@@ -57,26 +57,33 @@ func _process(_delta: float) -> void:
 		else:
 			selector.position = marker_2d_3.position
 	
+	#Ctrl + Press on "Questions"
 	if !Questions.test_done:
 		question.text = str(Questions.question)
 	else:
 		question.text = "YOU WON"
+		_on_yes_stop_playing_pressed()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		#Recieving the go back Click (on Android)
 		if Global.QuitPressed:
 			get_tree().quit()
 		
 		if Engine.has_singleton("ToastPlugin") && !Global.QuitPressed:
 			var toast_plugin = Engine.get_singleton("ToastPlugin")
-			toast_plugin.showToast("Click again", 0, 0, 0, 500)
+			toast_plugin.showToast("CLICK_AGAIN_LABEL", 0, 0, 0, 500)
 			Global.QuitPressed = true
+		#Showing "Click Again" Toast Message on the Screen
+		#Making the QuitPressed TRUE, (This variable will be FALSE when the Toast Hide) //see Global: _on_toast_hidden()
+		
 		
 		Global.load_resource()
 		Global.save_app("total_time_in_app", totalTimeInApp)
 
 
 func load_app_resource():
+	#Loading the Basic Info
 	user_name.text = str(Global.load_app().username)
 	tickets_label.text = str(Global.load_app().tickets)
 	#Questions.passedQuestions = Global.load_app().passed_questions
