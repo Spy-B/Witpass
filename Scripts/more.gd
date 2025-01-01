@@ -1,11 +1,23 @@
 extends Control
 
+@onready var selecting_language: Control = $SelectingLangLabel
+@onready var rules: Control = $Rules
+@onready var support: Control = $Support
+@onready var about: Control = $About
+@onready var bottom_btns: Control = $"../BottomBtns"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_language_pressed() -> void:
+	selecting_language.visible = true
+	bottom_btns.visible = false
 
+func _on_rules_pressed() -> void:
+	rules.visible = true
+	bottom_btns.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_support_pressed() -> void:
+	support.visible = true
+	bottom_btns.visible = false
+
+func _on_about_pressed() -> void:
+	about.visible = true
+	bottom_btns.visible = false

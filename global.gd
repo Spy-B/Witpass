@@ -3,7 +3,7 @@ extends Node
 var saveFilePath: String = "user://witpass.ww"
 var saveFilePass: String = "23439"
 
-var save_dic = {
+var save_dic: Dictionary = {
 	"language": 1,
 	"username": "",
 	"phone_number": "",
@@ -17,14 +17,9 @@ var save_dic = {
 	"questions_answered_correctly": 0
 	}
 
-var appStarted := false
-var signUpDone := false
-var QuitPressed := false
-
-var screen_resolution: Dictionary = {
-	"16/9": "1920*1080",
-	"19.5/9": "2340*1080",
-}
+var appStarted: bool = false
+var signUpDone: bool = false
+var QuitPressed: bool = false
 
 func _ready() -> void:
 	print(load_app())
@@ -42,6 +37,7 @@ func _on_toast_hidden():
 
 
 func save_app(_key = null, _value = null):
+	load_resource()
 	if _key != null && _value != null:
 		save_dic[_key] = _value
 	var save_file = FileAccess.open_encrypted_with_pass(saveFilePath, FileAccess.WRITE, saveFilePass)
@@ -63,7 +59,7 @@ func load_app():
 	load_file.close()
 
 
-func load_resource():
+func load_resource() -> void:
 	if signUpDone:
 		save_dic.language = load_app().language
 	
@@ -77,3 +73,5 @@ func load_resource():
 		save_dic.referral_code = load_app().referral_code
 	
 	save_dic.friend_referral_code = load_app().friend_referral_code
+	
+	save_dic.passed_questions = load_app().passed_questions

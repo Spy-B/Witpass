@@ -27,6 +27,9 @@ class_name Root
 
 @onready var more: Control = $More
 @onready var selecting_language: Control = $More/SelectingLangLabel
+@onready var rules: Control = $More/Rules
+@onready var support: Control = $More/Support
+@onready var about: Control = $More/About
 @onready var system_bar_color_changer: SystemBarColorChanger = $SystemBarColorChanger
 
 @onready var bottom_btns: Control = $BottomBtns
@@ -38,13 +41,21 @@ class_name Root
 
 @onready var timer: Timer = $TotalTime
 
-var totalTimeInApp
+var totalTimeInApp: int
 
+var click_again: String = "Click again"
 
 func _ready() -> void:
+	if DisplayServer.screen_get_size() >= Vector2i(1080, 1920):
+		page_selector.position.y = 36
+	else:
+		page_selector.position.y = 0
+	
+	
 	Global.appStarted = true
 	load_app_resource()
 	
+	await get_tree().create_timer(0.2).timeout
 	if TranslationServer.get_locale() == "ar":
 		selector.global_position = marker_2d_3.global_position
 	
@@ -59,23 +70,39 @@ func _process(_delta: float) -> void:
 	
 	#Ctrl + Press on "Questions"
 	if !Questions.test_done:
-		question.text = str(Questions.question)
+		question.text = str(Questions.selected_question)
 	else:
+		set_process(false)
 		question.text = "YOU WON"
 		_on_yes_stop_playing_pressed()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		#Recieving the go back Click (on Android)
-		if Global.QuitPressed:
-			get_tree().quit()
-		
-		if Engine.has_singleton("ToastPlugin") && !Global.QuitPressed:
-			var toast_plugin = Engine.get_singleton("ToastPlugin")
-			toast_plugin.showToast("CLICK_AGAIN_LABEL", 0, 0, 0, 500)
-			Global.QuitPressed = true
-		#Showing "Click Again" Toast Message on the Screen
-		#Making the QuitPressed TRUE, (This variable will be FALSE when the Toast Hide) //see Global: _on_toast_hidden()
+		if selecting_language.visible || rules.visible || support.visible || about.visible:
+			selecting_language.language = int(Global.load_app().language)
+			selecting_language.visible = false
+			
+			rules.visible = false
+			support.visible = false
+			about.visible = false
+			
+			bottom_btns.visible = true
+			
+		else:
+			if Global.QuitPressed:
+				get_tree().quit()
+			
+			if !profile.visible && !more.visible:
+				if Engine.has_singleton("ToastPlugin") && !Global.QuitPressed:
+					var toast_plugin = Engine.get_singleton("ToastPlugin")
+					toast_plugin.showToast(click_again, 0, 0, 0, 500)
+					Global.QuitPressed = true
+			#Showing "Click Again" Toast Message on the Screen
+			#Making the QuitPressed TRUE, (This variable will be FALSE when the Toast got Hide again) //see Global: _on_toast_hidden()
+			
+			else:
+				_on_home_pressed()
 		
 		
 		Global.load_resource()
@@ -103,7 +130,7 @@ func _on_start_pressed() -> void:
 	var tween2 = get_tree().create_tween()
 	var tween3 = get_tree().create_tween()
 	var tween4 = get_tree().create_tween()
-	tween1.tween_property(bottom_btns, "position", Vector2(0, 2350), 0.1).set_trans(Tween.TRANS_CUBIC)
+	tween1.tween_property(bottom_btns, "position", Vector2(0, bottom_btns.position.y + 420), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween2.tween_property(correct_btn, "modulate", Color.html("ffffff"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween3.tween_property(incorrect_btn, "modulate", Color.html("ffffff"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween4.tween_property(close_btn, "modulate", Color.html("ff2929"), 0.1).set_trans(Tween.TRANS_CUBIC)
@@ -154,7 +181,8 @@ func _on_yes_stop_playing_pressed() -> void:
 	var tween2 = get_tree().create_tween()
 	var tween3 = get_tree().create_tween()
 	var tween4 = get_tree().create_tween()
-	tween1.tween_property(bottom_btns, "position", Vector2(0, 2080), 0.1).set_trans(Tween.TRANS_CUBIC)
+	
+	tween1.tween_property(bottom_btns, "position", Vector2(0, bottom_btns.position.y - 420), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween2.tween_property(correct_btn, "modulate", Color.html("ffffff00"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween3.tween_property(incorrect_btn, "modulate", Color.html("ffffff00"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween4.tween_property(close_btn, "modulate", Color.html("ff292900"), 0.1).set_trans(Tween.TRANS_CUBIC)
@@ -182,11 +210,6 @@ func _on_get_5_pressed() -> void:
 	pass
 
 
-func _on_language_pressed() -> void:
-	selecting_language.visible = true
-	bottom_btns.visible = false
-
-
 
 func _on_home_pressed() -> void:
 	main.visible = true
@@ -203,6 +226,11 @@ func _on_profile_pressed() -> void:
 	main.visible = false
 	profile.visible = true
 	more.visible = false
+	
+	selecting_language.visible = false
+	rules.visible = false
+	support.visible = false
+	about.visible = false
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(selector, "position", marker_2d_2.position, 0.15).set_trans(Tween.TRANS_CUBIC)

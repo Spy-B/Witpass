@@ -8,7 +8,7 @@ extends Control
 var targeted_scene
 
 func _ready() -> void:
-	if Global.load_app() == null:
+	if !Global.load_app():
 		Global.save_app()
 	
 	if Global.load_app().username != "" && (Global.load_app().email != "" || Global.load_app().phone_number != ""):
@@ -24,3 +24,5 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if ResourceLoader.THREAD_LOAD_LOADED:
 		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(targeted_scene))
+		print("Resource Loaded => ", "'", targeted_scene, "'")
+		print("Resource Loaded => ", "'", questionsFilePath, "'")

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Witpass"
+config/version="Alpha"
 run/main_scene="res://Scenes/intro.tscn"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
@@ -31,10 +32,11 @@ file_logging/log_path="user://logs/witpass.log"
 [display]
 
 window/size/viewport_width=1080
-window/size/viewport_height=2340
+window/size/viewport_height=1920
 window/size/window_width_override=540
 window/size/window_height_override=920
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
 
