@@ -37,7 +37,9 @@ func _on_toast_hidden():
 
 
 func save_app(_key = null, _value = null):
-	load_resource()
+	if load_app():
+		load_resource()
+	
 	if _key != null && _value != null:
 		save_dic[_key] = _value
 	var save_file = FileAccess.open_encrypted_with_pass(saveFilePath, FileAccess.WRITE, saveFilePass)
