@@ -18,7 +18,6 @@ func _ready() -> void:
 		Global.signUpDone = false
 		targeted_scene = signupScenePath
 	
-	ResourceLoader.load_threaded_request(questionsFilePath)
 	ResourceLoader.load_threaded_request(targeted_scene)
 
 func _process(_delta: float) -> void:

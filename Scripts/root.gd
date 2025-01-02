@@ -48,6 +48,10 @@ var click_again: String = "Click again"
 func _ready() -> void:
 	if DisplayServer.screen_get_size() >= Vector2i(1080, 1920):
 		page_selector.position.y = 36
+	elif DisplayServer.screen_get_size() >= Vector2i(1080, 2340):
+		page_selector.position.y = 72
+	elif DisplayServer.screen_get_size() >= Vector2i(1080, 2408):
+		page_selector.position.y = 108
 	else:
 		page_selector.position.y = 0
 	
