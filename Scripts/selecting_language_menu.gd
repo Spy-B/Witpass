@@ -1,7 +1,7 @@
 extends Control
 
 @export_enum("arabic", "engilsh", "spanish", "Portuguese", "Portuguese(Brazil)", "French","German", "Russian", "Chinese", "Indian") var language
-var selectedLanguage = Global.load_app().language
+var selectedLanguage = Global.load_game().language
 
 @onready var lang_1: CheckBox = $Panel/ScrollContainer/VBoxContainer/Lang1
 @onready var lang_2: CheckBox = $Panel/ScrollContainer/VBoxContainer/Lang2
@@ -17,7 +17,7 @@ var selectedLanguage = Global.load_app().language
 @onready var cancel_btn: Button = $Panel/Cancel
 
 func _ready() -> void:
-	if Global.load_app().username != "" && (Global.load_app().email != "" || Global.load_app().phone_number != ""):
+	if Global.load_game().username != "" && (Global.load_game().email != "" || Global.load_game().phone_number != ""):
 		cancel_btn.visible = true
 	else:
 		cancel_btn.visible = false
@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
 		next_btn.disabled = true
 	else:
 		next_btn.disabled = false
+	
 	
 	match language:
 		0:
@@ -43,6 +44,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "انقر مرة أخرى"
 		1:
 			TranslationServer.set_locale("en")
 			lang_1.button_pressed = false
@@ -55,6 +57,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "Click again"
 		2:
 			TranslationServer.set_locale("es")
 			lang_1.button_pressed = false
@@ -67,6 +70,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "Haz clic de nuevo"
 		3:
 			TranslationServer.set_locale("pt")
 			lang_1.button_pressed = false
@@ -79,6 +83,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "Clique novamente"
 		4:
 			TranslationServer.set_locale("pt_br")
 			lang_1.button_pressed = false
@@ -91,6 +96,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "Clique novamente"
 		5:
 			TranslationServer.set_locale("fr")
 			lang_1.button_pressed = false
@@ -103,6 +109,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "Cliquez à nouveau"
 		6:
 			TranslationServer.set_locale("de")
 			lang_1.button_pressed = false
@@ -115,6 +122,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "Erneut klicken"
 		7:
 			TranslationServer.set_locale("ru")
 			lang_1.button_pressed = false
@@ -127,6 +135,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = true
 			lang_9.button_pressed = false
 			lang_10.button_pressed = false
+			Global.click_again = "Нажмите ещё раз"
 		8:
 			TranslationServer.set_locale("zh")
 			lang_1.button_pressed = false
@@ -139,6 +148,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = true
 			lang_10.button_pressed = false
+			Global.click_again = "再次点击"
 		9:
 			TranslationServer.set_locale("hi")
 			lang_1.button_pressed = false
@@ -151,6 +161,7 @@ func _process(_delta: float) -> void:
 			lang_8.button_pressed = false
 			lang_9.button_pressed = false
 			lang_10.button_pressed = true
+			Global.click_again = "फिर से दबाएँ"
 
 
 func _on_lang_1_pressed() -> void:
@@ -277,7 +288,7 @@ func _on_lang_10_pressed() -> void:
 
 func _on_next_pressed() -> void:
 	Global.load_resource()
-	Global.save_app("language", language)
+	Global.save_game("language", language)
 	
 	self.visible = false
 	
@@ -288,7 +299,7 @@ func _on_next_pressed() -> void:
 			$"../../BottomBtns".visible = true
 
 func _on_cancel_pressed() -> void:
-	selectedLanguage = Global.load_app().language
+	selectedLanguage = Global.load_game().language
 	language = int(selectedLanguage)
 	
 	self.visible = false

@@ -6,8 +6,8 @@ var encrypt_pass: String = "45345"
 
 func _ready() -> void:
 	Global.load_resource()
-	if Global.load_app().referral_code == "":
-		Global.save_app("referral_code", generate_referral_code())
+	if Global.load_game().referral_code == "":
+		Global.save_game("referral_code", generate_referral_code())
 
 func generate_referral_code(length = 10):
 	var num = "0123456789"
@@ -18,7 +18,7 @@ func generate_referral_code(length = 10):
 	
 	return random_code
 
-func generate_random_code_with_inserted_subcode(length = 100, subcode = Global.load_app().referral_code, email = Global.load_app().email, phoneNumber = Global.load_app().phone_number) -> String:
+func generate_random_code_with_inserted_subcode(length = 100, subcode = Global.load_game().referral_code, email = Global.load_game().email, phoneNumber = Global.load_game().phone_number) -> String:
 	var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя0123456789!@$%&*_+-=?;|"
 	var random_code = ""
 	

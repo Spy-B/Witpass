@@ -15,15 +15,15 @@ class_name Root
 @onready var start_btn: Button = $Main/MainPanel/Start
 @onready var correct_btn: Button = $Main/MainPanel/Correct
 @onready var incorrect_btn: Button = $Main/MainPanel/Incorrect
-@onready var yes_btn: Button = $Main/MainPanel/StopWarning/Panel/Yes
-@onready var cancel_btn: Button = $Main/MainPanel/StopWarning/Panel/Cancel
+@onready var yes_btn: Button = $Main/MainPanel/QuitWarning/Panel/Yes
+@onready var cancel_btn: Button = $Main/MainPanel/QuitWarning/Panel/Cancel
 @onready var close_btn: Sprite2D = $Main/MainPanel/Close
-@onready var stop_warning_panel: Control = $Main/MainPanel/StopWarning
+@onready var stop_warning_panel: Control = $Main/MainPanel/QuitWarning
 
 @onready var cards_wrapper: Control = $Main/CardsWrapper
 
 @onready var profile: Control = $Profile
-@onready var total_time_label: Label = $Profile/ScrollContainer/HBoxContainer/TotalTime/Label2
+@onready var total_time_label: Label = $Profile/ScrollContainer/HBoxContainer/TotalTime/TotalTimeValue
 
 @onready var more: Control = $More
 @onready var selecting_language: Control = $More/SelectingLangLabel
@@ -43,8 +43,6 @@ class_name Root
 
 var totalTimeInApp: int
 
-var click_again: String = "Click again"
-
 func _ready() -> void:
 	if DisplayServer.screen_get_size() >= Vector2i(1080, 1920):
 		page_selector.position.y = 36
@@ -57,7 +55,7 @@ func _ready() -> void:
 	
 	
 	Global.appStarted = true
-	load_app_resource()
+	load_game_resource()
 	
 	await get_tree().create_timer(0.2).timeout
 	if TranslationServer.get_locale() == "ar":
@@ -78,13 +76,14 @@ func _process(_delta: float) -> void:
 	else:
 		set_process(false)
 		question.text = "YOU WON"
-		_on_yes_stop_playing_pressed()
+		if bottom_btns.position.y >= 2000:
+			_on_yes_stop_playing_pressed()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		#Recieving the go back Click (on Android)
 		if selecting_language.visible || rules.visible || support.visible || about.visible:
-			selecting_language.language = int(Global.load_app().language)
+			selecting_language.language = int(Global.load_game().language)
 			selecting_language.visible = false
 			
 			rules.visible = false
@@ -100,7 +99,7 @@ func _notification(what: int) -> void:
 			if !profile.visible && !more.visible:
 				if Engine.has_singleton("ToastPlugin") && !Global.QuitPressed:
 					var toast_plugin = Engine.get_singleton("ToastPlugin")
-					toast_plugin.showToast(click_again, 0, 0, 0, 500)
+					toast_plugin.showToast(Global.click_again, 0, 0, 0, 500)
 					Global.QuitPressed = true
 			#Showing "Click Again" Toast Message on the Screen
 			#Making the QuitPressed TRUE, (This variable will be FALSE when the Toast got Hide again) //see Global: _on_toast_hidden()
@@ -110,15 +109,15 @@ func _notification(what: int) -> void:
 		
 		
 		Global.load_resource()
-		Global.save_app("total_time_in_app", totalTimeInApp)
+		Global.save_game("total_time_in_app", totalTimeInApp)
 
 
-func load_app_resource():
+func load_game_resource():
 	#Loading the Basic Info
-	user_name.text = str(Global.load_app().username)
-	tickets_label.text = str(Global.load_app().tickets)
-	#Questions.passedQuestions = Global.load_app().passed_questions
-	totalTimeInApp = Global.load_app().total_time_in_app
+	user_name.text = str(Global.load_game().username)
+	tickets_label.text = str(Global.load_game().tickets)
+	Questions.passedQuestions = Global.load_game().passed_questions
+	totalTimeInApp = Global.load_game().total_time_in_app
 
 
 func _on_start_pressed() -> void:
@@ -148,6 +147,8 @@ func _on_correct_pressed() -> void:
 	if Questions.correctAnswer:
 		answer = "Correct"
 		Questions.questions_selector()
+		Global.load_resource()
+		Global.save_game("passed_questions", Questions.passedQuestions)
 	else:
 		answer = "Incorrect!"
 		Questions.questions_selector()
@@ -160,6 +161,9 @@ func _on_incorrect_pressed() -> void:
 	if !Questions.correctAnswer:
 		answer = "Correct"
 		Questions.questions_selector()
+		Global.load_resource()
+		Global.save_game("passed_questions", Questions.passedQuestions)
+		
 	else:
 		answer = "Incorrect!"
 		Questions.questions_selector()
@@ -186,10 +190,13 @@ func _on_yes_stop_playing_pressed() -> void:
 	var tween3 = get_tree().create_tween()
 	var tween4 = get_tree().create_tween()
 	
+	
 	tween1.tween_property(bottom_btns, "position", Vector2(0, bottom_btns.position.y - 420), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween2.tween_property(correct_btn, "modulate", Color.html("ffffff00"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween3.tween_property(incorrect_btn, "modulate", Color.html("ffffff00"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	tween4.tween_property(close_btn, "modulate", Color.html("ff292900"), 0.1).set_trans(Tween.TRANS_CUBIC)
+	
+	
 
 
 func _on_cancel_pressed() -> void:

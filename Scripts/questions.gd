@@ -1,7 +1,7 @@
 extends Node
 
-var questions_file_path: String = "res://Assets/JSON/Questions.json"
-var answers_file_path: String = "res://Assets/JSON/Answers.json"
+var questions_file_path: String = "res://Assets/JSON/Questions_1.json"
+var answers_file_path: String = "res://Assets/JSON/Answers_1.json"
 
 var questions: Dictionary = {}
 var answers: Dictionary = {}
@@ -10,20 +10,17 @@ var selected_question: String
 var chosen_question: int
 var correctAnswer: bool
 var passedQuestions: Array = []
-var testQuestions: Array = []
+var testsPassed: Array = []
 var number_of_questions: int
 
 var test_done = false
 
 func _ready() -> void:
-	load_questions()
+	#Global.load_resource()
+	#Global.save_game("passed_questions", [])
 	
-	if Global.load_app().account_level == 1:
-		number_of_questions = 10
-	elif Global.load_app().account_level == 2:
-		number_of_questions = 15
-	elif Global.load_app().account_level == 3:
-		number_of_questions = 30
+	lvl()
+	load_questions()
 
 func load_questions() -> void:
 	var questionFile = FileAccess.open(questions_file_path, FileAccess.READ)
@@ -44,10 +41,34 @@ func questions_selector() -> void:
 		test_done = true
 		return
 	else:
-		selected_question = questions["q" + str(chosen_question)]
-		passedQuestions.append(chosen_question)
-		
-		correctAnswer = answers["a" + str(chosen_question)]
+		if !chosen_question in passedQuestions:
+			print("Done! -> Pass the Question")
+			selected_question = questions["q" + str(chosen_question)]
+			passedQuestions.append(chosen_question)
+			
+			correctAnswer = answers["a" + str(chosen_question)]
+		else:
+			print("Repeated! -> Run Again")
+			questions_selector()
+
+
+func lvl():
+	if Global.load_game().passed_questions.size() >= 200:
+		Global.save_game("account_level", 2)
+	elif Global.load_game().account_level.size() >= 500:
+		Global.save_game("account_level", 3)
 	
-	Global.load_resource()
-	Global.save_app("passed_questions", passedQuestions)
+	
+	match Global.load_game().account_level:
+		1:
+			number_of_questions = 15
+			questions_file_path = "res://Assets/JSON/Questions_1.json"
+			answers_file_path = "res://Assets/JSON/Answers_1.json"
+		2:
+			number_of_questions = 12
+			questions_file_path = "res://Assets/JSON/Questions_2.json"
+			answers_file_path = "res://Assets/JSON/Answers_2.json"
+		3:
+			number_of_questions = 10
+			questions_file_path = "res://Assets/JSON/Questions_3.json"
+			answers_file_path = "res://Assets/JSON/Answers_3.json"

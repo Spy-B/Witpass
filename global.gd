@@ -21,8 +21,10 @@ var appStarted: bool = false
 var signUpDone: bool = false
 var QuitPressed: bool = false
 
+var click_again: String
+
 func _ready() -> void:
-	print(load_app())
+	print(load_game())
 	
 	if Engine.has_singleton("ToastPlugin"):
 		var toast_plugin = Engine.get_singleton("ToastPlugin")
@@ -36,7 +38,7 @@ func _on_toast_hidden():
 	QuitPressed = false
 
 
-func save_app(_key = null, _value = null):
+func save_game(_key = null, _value = null):
 	if _key != null && _value != null:
 		save_dic[_key] = _value
 	var save_file = FileAccess.open_encrypted_with_pass(saveFilePath, FileAccess.WRITE, saveFilePass)
@@ -45,9 +47,9 @@ func save_app(_key = null, _value = null):
 	
 	save_file.close()
 
-func load_app():
+func load_game():
 	if !FileAccess.file_exists(saveFilePath):
-		save_app()
+		save_game()
 	var load_file = FileAccess.open_encrypted_with_pass(saveFilePath, FileAccess.READ, saveFilePass)
 	
 	while load_file.get_position() < load_file.get_length():
@@ -60,17 +62,17 @@ func load_app():
 
 func load_resource() -> void:
 	if signUpDone:
-		save_dic.language = load_app().language
+		save_dic.language = load_game().language
 	
-	save_dic.username = load_app().username
-	save_dic.phone_number = load_app().phone_number
-	save_dic.email = load_app().email
+	save_dic.username = load_game().username
+	save_dic.phone_number = load_game().phone_number
+	save_dic.email = load_game().email
 	
-	if load_app().referral_code == "":
+	if load_game().referral_code == "":
 		pass
 	else:
-		save_dic.referral_code = load_app().referral_code
+		save_dic.referral_code = load_game().referral_code
 	
-	save_dic.friend_referral_code = load_app().friend_referral_code
+	save_dic.friend_referral_code = load_game().friend_referral_code
 	
-	save_dic.passed_questions = load_app().passed_questions
+	save_dic.passed_questions = load_game().passed_questions

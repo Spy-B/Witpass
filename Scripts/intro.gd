@@ -8,10 +8,10 @@ extends Control
 var targeted_scene
 
 func _ready() -> void:
-	if !Global.load_app():
-		Global.save_app()
+	if !Global.load_game():
+		Global.save_game()
 	
-	if Global.load_app().username != "" && (Global.load_app().email != "" || Global.load_app().phone_number != ""):
+	if Global.load_game().username != "" && (Global.load_game().email != "" || Global.load_game().phone_number != ""):
 		Global.signUpDone = true
 		targeted_scene = rootScenePath
 	else:
