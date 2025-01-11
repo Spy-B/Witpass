@@ -14,6 +14,8 @@ var save_dic: Dictionary = {
 	"tickets": 0,
 	"total_time_in_app": 0,
 	"passed_questions": [],
+	"current_test": 1,
+	"tests_passed": [],
 	"questions_answered_correctly": 0
 	}
 
@@ -74,5 +76,6 @@ func load_resource() -> void:
 		save_dic.referral_code = load_game().referral_code
 	
 	save_dic.friend_referral_code = load_game().friend_referral_code
-	
 	save_dic.passed_questions = load_game().passed_questions
+	save_dic.current_test = load_game().current_test
+	save_dic.tests_passed = load_game().tests_passed

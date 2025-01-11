@@ -1,5 +1,4 @@
 extends Control
-class_name Root
 
 @onready var main: Control = $Main
 

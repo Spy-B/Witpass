@@ -1,8 +1,12 @@
 extends Control
 
+##Root Scene file path
 @export_file("*.tscn") var rootScenePath
+
+##Signup Scene file path
 @export_file("*.tscn") var signupScenePath
 
+##Questions Scene file path
 @export_file("*.tscn") var questionsFilePath
 
 var targeted_scene
