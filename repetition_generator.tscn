@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjinjvaicbjjp"]
 
-[ext_resource type="Script" path="res://repetition_generator.gd" id="1_aoyjo"]
+[ext_resource type="Script" uid="uid://wgduxl57walu" path="res://repetition_generator.gd" id="1_aoyjo"]
 
 [node name="RepetitionGenerator" type="Node"]
 script = ExtResource("1_aoyjo")

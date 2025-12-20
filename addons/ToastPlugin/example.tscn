@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://lcvffy0yl5v"]
 
-[ext_resource type="Script" path="res://addons/ToastPlugin/example.gd" id="1_x55m5"]
+[ext_resource type="Script" uid="uid://b5ecrrl22887e" path="res://addons/ToastPlugin/example.gd" id="1_x55m5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

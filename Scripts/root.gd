@@ -128,14 +128,11 @@ func _on_start_pressed() -> void:
 	incorrect_btn.visible = true
 	close_btn.visible = true
 	
-	var tween1 = get_tree().create_tween()
-	var tween2 = get_tree().create_tween()
-	var tween3 = get_tree().create_tween()
-	var tween4 = get_tree().create_tween()
-	tween1.tween_property(bottom_btns, "position", Vector2(0, bottom_btns.position.y + 420), 0.1).set_trans(Tween.TRANS_CUBIC)
-	tween2.tween_property(correct_btn, "modulate", Color.html("ffffff"), 0.1).set_trans(Tween.TRANS_CUBIC)
-	tween3.tween_property(incorrect_btn, "modulate", Color.html("ffffff"), 0.1).set_trans(Tween.TRANS_CUBIC)
-	tween4.tween_property(close_btn, "modulate", Color.html("ff2929"), 0.1).set_trans(Tween.TRANS_CUBIC)
+	var tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property(bottom_btns, "position", Vector2(0, bottom_btns.position.y + 420), 0.1).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(correct_btn, "modulate", Color.html("ffffff"), 0.1).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(incorrect_btn, "modulate", Color.html("ffffff"), 0.1).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(close_btn, "modulate", Color.html("ff2929"), 0.1).set_trans(Tween.TRANS_CUBIC)
 	
 	Questions.questions_selector()
 

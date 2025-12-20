@@ -59,6 +59,8 @@ func load_game():
 		json.parse(load_file.get_line(), true)
 		return json.get_data()
 	
+	#save_dic = 
+	
 	load_file.close()
 
 
