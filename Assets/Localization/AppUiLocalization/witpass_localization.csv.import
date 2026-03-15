@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://21l1r2ww84g1"
+
+[deps]
+
+files=["res://Assets/Localization/AppUiLocalization/witpass_localization.ar.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.en.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.es.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.pt.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.pt.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.fr.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.de.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.ru.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.zh.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.hi.translation"]
+
+source_file="res://Assets/Localization/AppUiLocalization/witpass_localization.csv"
+dest_files=["res://Assets/Localization/AppUiLocalization/witpass_localization.ar.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.en.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.es.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.pt.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.pt.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.fr.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.de.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.ru.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.zh.translation", "res://Assets/Localization/AppUiLocalization/witpass_localization.hi.translation"]
+
+[params]
+
+compress=true
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -8,14 +8,18 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Witpass"
-config/version="Alpha"
+config/version="Beta"
 run/main_scene="res://Scenes/intro.tscn"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -36,7 +40,7 @@ window/size/viewport_width=1080
 window/size/viewport_height=1920
 window/size/window_width_override=540
 window/size/window_height_override=960
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
@@ -62,7 +66,7 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Assets/Localization/App_UI_Localization/Witpass Localization.ar.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.de.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.en.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.es.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.fr.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.hi.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.pt.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.ru.translation", "res://Assets/Localization/App_UI_Localization/Witpass Localization.zh.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.ar.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.de.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.en.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.es.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.fr.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.hi.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.pt.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.ru.translation", "res://Assets/Localization/Questions_Localization/Witpss Questions Localization.zh.translation")
+locale/translations=PackedStringArray("res://assets/localization/app_ui_localization/Witpass Localization.ar.translation", "res://assets/localization/app_ui_localization/Witpass Localization.de.translation", "res://assets/localization/app_ui_localization/Witpass Localization.en.translation", "res://assets/localization/app_ui_localization/Witpass Localization.es.translation", "res://assets/localization/app_ui_localization/Witpass Localization.fr.translation", "res://assets/localization/app_ui_localization/Witpass Localization.hi.translation", "res://assets/localization/app_ui_localization/Witpass Localization.pt.translation", "res://assets/localization/app_ui_localization/Witpass Localization.ru.translation", "res://assets/localization/app_ui_localization/Witpass Localization.zh.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.ar.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.de.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.en.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.es.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.fr.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.hi.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.pt.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.ru.translation", "res://assets/localization/questions_localization/Witpss Questions Localization.zh.translation")
 
 [physics]
 
@@ -70,6 +74,7 @@ common/physics_ticks_per_second=30
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true

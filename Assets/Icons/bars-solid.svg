@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:realworld="http://www.rw-designer.com/export-svg" width="448px" height="512px">
-  <g>
-    <path d="M 0 96C 0 78.3 14.3 64 32 64L 416 64C 433.7 64 448 78.3 448 96C 448 113.7 433.7 128 416 128L 32 128C 14.3 128 0 113.7 0 96 z M 0 256C 0 238.3 14.3 224 32 224L 416 224C 433.7 224 448 238.3 448 256C 448 273.7 433.7 288 416 288L 32 288C 14.3 288 0 273.7 0 256 z M 448 416C 448 433.7 433.7 448 416 448L 32 448C 14.3 448 0 433.7 0 416C 0 398.3 14.3 384 32 384L 416 384C 433.7 384 448 398.3 448 416 z" fill="#ffffff" fill-rule="evenodd" />
-  </g>
-</svg>

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://do1piuniwlbkn"]
+
+[ext_resource type="FontFile" uid="uid://d0vtqewcnbovv" path="res://Assets/Fonts/rubik_bold.ttf" id="1_278bx"]
+
+[resource]
+font = ExtResource("1_278bx")
+font_size = 48

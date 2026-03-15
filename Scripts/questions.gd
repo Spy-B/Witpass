@@ -1,7 +1,7 @@
 extends Node
 
-var questions_file_path: String = "res://Assets/JSON/Questions_1.json"
-var answers_file_path: String = "res://Assets/JSON/Answers_1.json"
+var questions_file_path: String = "res://Assets/json/questions_1.json"
+var answers_file_path: String = "res://Assets/json/answers_1.json"
 
 var questions: Dictionary = {}
 var answers: Dictionary = {}

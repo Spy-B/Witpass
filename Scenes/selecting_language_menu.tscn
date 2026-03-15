@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b07q8fhd2hlp8"]
+[gd_scene format=3 uid="uid://b07q8fhd2hlp8"]
 
-[ext_resource type="LabelSettings" uid="uid://b0naa3jk7tjd5" path="res://Resources/Labels/MainLabelSettings.tres" id="1_8bh14"]
+[ext_resource type="LabelSettings" uid="uid://b0naa3jk7tjd5" path="res://Resources/Labels/main_label_settings.tres" id="1_8bh14"]
 [ext_resource type="Script" uid="uid://dvxuyf5r70c33" path="res://Scripts/selecting_language_menu.gd" id="1_u2y5k"]
 [ext_resource type="Theme" uid="uid://mik8vr1ff0th" path="res://Resources/Themes/signup_menu_checkbox.theme" id="2_40m01"]
 [ext_resource type="Theme" uid="uid://c6w7p87d84la4" path="res://Resources/Themes/selecting_language_scroll_container.theme" id="3_lh3r7"]

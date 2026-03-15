@@ -1,0 +1,30 @@
+key,ar,en,es,pt,pt_br,fr,de,ru,zh,hi
+LANGUAGE_LABEL,اللغة,Language,Idiomas,Idioma,Idioma,Langue,Sprachen,Язык,语言,भाषा
+SIGN_UP_LABEL,تسجيل الدخول,Sign Up,Registrarse,Inscrever-se,Inscrever-se,S'inscrire,registrieren,Зарегистрироваться,报名,साइन अप करें
+ACCOUNT_SETTINGS_LABEL,إعدادات الحساب,Account Settings,Configuración de la cuenta ,Definições da conta ,Configurações da conta ,Paramètres du compte ,Kontoeinstellungen ,Настройки аккаунта ,帐户设置 ,खाता सेटिंग्स 
+ENTER_YOUR_USERNAME_LABEL,أدخل إسم المستخدم,Enter your User Name,Ingrese su Nombre de Usuario,Introduza o seu Nome de Utilizador,Digite seu Nome de Usuário,Entrez votre Nom D'utilisateur,Geben Sie Ihren Benutzernamen ein,Введите свое имя пользователя,输入您的用户名,अपना उपयोगकर्ता नाम दर्ज करें
+USERNAME_LABEL,إسم المستخدم,User Name,Nombre de Usuario,Nome de Utilizador,Nome de Usuário,Nom D'utilisateur,Benutzername,имя пользователя,用户名,उपयोगकर्ता नाम
+ENTER_YOUR_EMAIL_OR_YOUR_PHONE_NUMBER_LABEL,أدخل بريدك الإلكتروني أو رقم هاتفك,Enter your E-mail or your Phone Number,Introduce tu correo electrónico o Número de Teléfono,Introduza o seu E-mail ou o seu Número de Telefone,Digite seu e-mail ou Número de Telefone,Entrez votre email ou votre Numéro de Téléphone,Geben Sie Ihre E-Mail-Adresse oder Telefonnummer ein,Введите адрес электронной почты или номер телефона,输入您的电子邮件或电话号码,अपना ईमेल या फ़ोन नंबर दर्ज करें
+EMAIL_OR_PHONE_NUMBER_LABEL,البريد الإلكتروني أو رقم الهاتف,E-mail or Phone Number,Correo electrónico o Número de Teléfono,E-mail ou Número de Telefone,E-mail ou Número de Telefone,Email ou Numéro de Téléphone,E-Mail oder Telefonnummer,Электронная почта или номер телефона,电子邮件或电话号码,ईमेल या फ़ोन नंबर
+PHONE_NUMBER_LABEL,رقم الهاتف,Phone Number,Número de teléfono ,Número de telefone ,Número de telefone ,Numéro de téléphone ,Telefonnummer ,Номер телефона ,电话号码 ,फ़ोन नंबर 
+EMAIL_LABEL,البريد الإلكتروني,E-mail,Correo electrónico ,E-mail ,E-mail ,Adresse e-mail ,E-Mail-Adresse ,Электронная почта ,电子邮件 ,ईमेल 
+ENTER_YOUR_FRIENDS_REFERRAL_CODE-OPTIONAL-LABEL,أدخل رمز إحالة صديقك (اختياري),Enter your Friend’s Referral Code (Optional),Ingresa el Código de Referencia de tu amigo (Opcional),Introduza o Código de Referência do seu amigo (Opcional),Digite o código de indicação do seu amigo (Opcional),Entrez le code de parrainage de votre ami (Facultatif),Geben Sie den Empfehlungscode Ihres Freundes ein (Optional),введите реферальный код вашего друга (необязательно),输入您朋友的推荐码（可选）,अपने मित्र का रेफ़रल कोड दर्ज करें (वैकल्पिक)
+EDIT_YOUR_USERNAME_LABEL,حرر اسمك المستخدم,Edit your User Name,Edita tu nombre de usuario ,Edite o seu nome de utilizador ,Edite seu nome de usuário ,Modifiez votre nom d'utilisateur ,Bearbeiten Sie Ihren Benutzernamen ,Измените своё имя пользователя ,编辑您的用户名 ,अपना उपयोगकर्ता नाम संपादित करें 
+EDIT_YOUR_PHONE_NUMBER_LABEL,حرر رقمك الهاتفي,Edit your Phone Number,Edita tu número de teléfono,Edite o seu número de telefone ,Edite seu número de telefone,Modifiez votre numéro de téléphone ,Bearbeiten Sie Ihre Telefonnummer ,Измените свой номер телефона ,编辑您的电话号码 ,अपना फ़ोन नंबर संपादित करें 
+EDIT_YOUR_EMAIL_LABEL,حرر بريدك الإلكتروني,Edit your E-mail,Edita tu correo electrónico ,Edite o seu e-mail ,Edite seu e-mail ,Modifiez votre adresse e-mail ,Bearbeiten Sie Ihre E-Mail-Adresse ,Измените свой адрес электронной почты ,编辑您的电子邮件 ,अपना ईमेल संपादित करें 
+REFERRAL_CODE_LABEL,رمز الإحالة,Referral Code,Código de Referencia,Código de Referência,Código de Referência,Code de Référence,Empfehlungscode,Реферальный код,推荐代码,रेफरल कोड
+START_LABEL,بدأ,Start,Inicio,Iniciar,Iniciar,Démarrer,Starten,Пуск,开始,शुरू करें
+NEXT_LABEL,التالي,Next,Siguiente,Seguinte,avançar,Suivant,Weiter,Далее,下一个,अगला
+DONE_LABEL,تم,Done,Hecho,Concluído,Concluído,Terminé,Erledigt ,Готово,完成,पूर्ण
+BACK_LABEL,عودة,Back,Atrás,Voltar,Voltar,Retour,Zurück,Назад,返回 ,वापस
+CORRECT_LABEL,صحيح,Correct,Correcto,Correto,Correto,Correct,Richtig,Правильный,正确的,सही
+INCORRECT_LABEL,خطأ,Incorrect,Incorrecto,Incorreto,Incorreto,Incorrect,Falsch,Неправильно,错误,ग़लत
+YES_LABEL,نعم,Yes,Sí,Sim,Sim,Oui,Ja,Да,是,हाँ
+NO_LABEL,لا,No,No,não,não,Non,Nein,Нет,弱,नहीं
+CANCEL_LABEL,إلغاء,Cancel,Cancelar,Cancelar,Cancelar,Annuler,Abbrechen,Отмена,取消,रद्द करें
+MORE_LABEL,المزيد,More,Más,Mais,Mais,Plus ,Mehr ,Ещё,更多 ,और 
+MY_ACCOUNT_LABEL,حسابي,My Account,Mi cuenta,A Minha Conta,Minha Conta,Mon compte,Mein Konto,Моя учетная запись,我的帐户,मेरा खाता
+RULES_LABEL,القوانين,Rules,Normas,Regras,Regras,Règles,Regeln,Правила,规则,नियम
+SUPPORT_LABEL,الدعم,Support,Soporte,Suporte,Suporte,Support,Support,Поддержка,支持,सहायता
+ABOUT_LABEL,عن,About,Acerca de ,Sobre ,Sobre ,À propos,Über ,О программе ,关于,के बारे में
+CLICK_AGAIN_LABEL,انقر مرة أخرى,Click again,Haz clic de nuevo ,Clique novamente ,Clique novamente ,Cliquez à nouveau ,Erneut klicken ,Нажмите ещё раз,再次点击,फिर से दबाएँ 

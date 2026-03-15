@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://b0naa3jk7tjd5"]
+
+[ext_resource type="FontFile" uid="uid://d0vtqewcnbovv" path="res://Assets/Fonts/rubik_bold.ttf" id="1_kme4v"]
+
+[resource]
+font = ExtResource("1_kme4v")
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)

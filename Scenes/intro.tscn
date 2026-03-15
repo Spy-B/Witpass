@@ -1,15 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn24lsfhtcbal"]
+[gd_scene format=3 uid="uid://cn24lsfhtcbal"]
 
-[ext_resource type="Script" uid="uid://clfxv6e80qx3c" path="res://Scripts/intro.gd" id="1_u7m8q"]
+[ext_resource type="Script" uid="uid://clfxv6e80qx3c" path="res://Scripts/intro.gd" id="1_ioskq"]
+[ext_resource type="PackedScene" uid="uid://l0m0f0utahpn" path="res://Scenes/root.tscn" id="2_yjqpq"]
+[ext_resource type="PackedScene" uid="uid://dp70vxuaq2i0s" path="res://Scenes/signup_menu.tscn" id="3_i2l1n"]
+[ext_resource type="PackedScene" uid="uid://3kyfv6gphkfb" path="res://Scenes/questions.tscn" id="4_wfs7u"]
 
-[node name="Intro" type="Control"]
+[node name="Intro" type="Control" unique_id=1408855362]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u7m8q")
-rootScenePath = "res://Scenes/root.tscn"
-signupScenePath = "res://Scenes/signup_menu.tscn"
-questionsFilePath = "res://Scenes/questions.tscn"
+script = ExtResource("1_ioskq")
+rootScenePath = ExtResource("2_yjqpq")
+signupScenePath = ExtResource("3_i2l1n")
+questionsFilePath = ExtResource("4_wfs7u")

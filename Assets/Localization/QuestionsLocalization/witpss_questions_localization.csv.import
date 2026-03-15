@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://beqfybgko7cuk"
+
+[deps]
+
+files=["res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.ar.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.en.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.es.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.en.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.pt.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.fr.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.de.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.ru.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.zh.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.hi.translation"]
+
+source_file="res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.csv"
+dest_files=["res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.ar.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.en.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.es.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.en.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.pt.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.fr.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.de.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.ru.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.zh.translation", "res://Assets/Localization/QuestionsLocalization/witpss_questions_localization.hi.translation"]
+
+[params]
+
+compress=true
+delimiter=0
+unescape_keys=false
+unescape_translations=true
